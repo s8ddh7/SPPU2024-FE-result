@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPPU</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 14px;
+            width: 300px;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Savitribai Phule Pune University</h1>
+    <form id="captchaForm" onsubmit="return validateForm()">
+        <label for="seatNo">Enter Seat No:</label>
+        <input type="text" id="seatNo" name="seatNo" placeholder="Enter Seat No" required>
+        
+        <label for="motherName">Enter Mother's Name:</label>
+        <input type="text" id="motherName" name="motherName" placeholder="Enter Mother's Name" required>
+        
+        <label for="captcha">Enter the CAPTCHA:</label>
+        <div>
+            <input type="text" id="captcha" name="captcha" placeholder="Enter CAPTCHA" style="width: 200px;" required>
+            <span style="font-size: 18px; font-weight: bold;">973519</span>
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const seatNo = document.getElementById('seatNo').value.trim();
+            const motherName = document.getElementById('motherName').value.trim();
+            const captchaInput = document.getElementById('captcha').value.trim();
+
+            // Check if CAPTCHA is correct
+            if (captchaInput !== '973519') {
+                alert('Invalid CAPTCHA! Please try again.');
+                return false;
+            }
+
+            // Check if seat number and mother's name are provided
+            if (!seatNo || !motherName) {
+                alert('Please fill out all fields.');
+                return false;
+            }
+
+            // Redirect to second page
+            window.location.href = 'SPPU1.html';
+            return false; // Prevent the default form submission
+        }
+    </script>
+</body>
+</html>
